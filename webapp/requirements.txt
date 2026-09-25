@@ -1,0 +1,4 @@
+# for the FastAPI app
+fastapi
+uvicorn
+httpx

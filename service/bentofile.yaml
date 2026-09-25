@@ -1,0 +1,13 @@
+service: "service:NLToSQLService"
+labels:
+  project: "nl-to-sql-agent"
+include:
+  - "service.py"
+python:
+  packages:
+    - torch
+    - transformers==4.46.3
+    - peft==0.13.2
+    - bentoml
+docker:
+  python_version: "3.11"
