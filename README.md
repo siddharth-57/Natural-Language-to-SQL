@@ -66,17 +66,16 @@ Run 2 was trained after observing validation loss was still decreasing at epoch 
 
 Three metrics are reported deliberately: exact-match string comparison understates true performance, since semantically correct queries can differ in casing, quoting, or clause order. Execution accuracy — actually running generated and reference SQL against real SQLite tables built from each example — captures functional correctness directly, and is the most reliable number.
 
-## Guardrails & Self-Correction
+## Guardrails
 
 Generated SQL is validated before execution:
 - Must be a `SELECT` statement (blocks `INSERT`/`UPDATE`/`DELETE`/`DROP`/etc.)
 - No statement chaining
 - All referenced columns must exist in the table's actual schema
 
-
 ## Caching
 
-An exact-match cache (keyed on normalized question + column set) avoids redundant model calls for repeated queries. 
+An exact-match cache (keyed on normalized question + column set) avoids redundant model calls for repeated queries.
 
 ## Project Structure
 
@@ -114,7 +113,7 @@ Swagger UI: `http://localhost:8000/docs`
 
 ## Live Demo
 
-[Gradio demo link — pending Hugging Face Spaces deployment]
+A Gradio interface was built and tested end-to-end (question → generated SQL → validation → execution against real table data). Not currently hosted as a permanent public link.
 
 ## Model
 
